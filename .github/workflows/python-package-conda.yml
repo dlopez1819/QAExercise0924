@@ -1,0 +1,15 @@
+name: Nightly Automation Test 
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # daily at 12:00 AM
+ 
+  push:
+      branches:
+        - 'main'  
+
+jobs:
+  build:
+    runs-on: mac-latest
+    steps:
+      bash ./runner/manual_test.sh
